@@ -40,7 +40,7 @@ fetch('https://api.ipify.org?format=json')
           },
           body: JSON.stringify({
             embeds: [{
-              title: 'Hali4',
+              title: 'アクセス情報',
               color: 16711680,
               fields: [
                 {
